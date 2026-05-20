@@ -1,5 +1,7 @@
 package com.jcaa.usersmanagement.domain.valueobject;
 
+import com.jcaa.usersmanagement.domain.exception.InvalidAppointmentIdException;
+
 import java.util.Objects;
 
 public record AppointmentId(String value) {
