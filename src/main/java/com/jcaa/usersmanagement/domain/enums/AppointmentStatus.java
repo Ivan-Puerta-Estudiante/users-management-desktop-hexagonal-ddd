@@ -1,5 +1,7 @@
 package com.jcaa.usersmanagement.domain.enums;
 
+import com.jcaa.usersmanagement.domain.exception.InvalidAppointmentStatusException;
+
 public enum AppointmentStatus {
     SCHEDULED,
     COMPLETED,
