@@ -22,7 +22,7 @@ public final class AppointmentCreatedDomainEvent extends DomainEvent{
                 "id", appointment.getId().value(),
                 "doctorId", appointment.getDoctorId().value(),
                 "patientId", appointment.getPatientId().value(),
-                "date", appointment.getAppointmentDate().value(),
+                "date", String.valueOf(appointment.getAppointmentDate().value()),
                 "reason", appointment.getAppointmentReason().value(),
                 "status", appointment.getAppointmentStatus().name()
         );
