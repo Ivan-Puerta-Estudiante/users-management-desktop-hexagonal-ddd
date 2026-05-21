@@ -2,6 +2,7 @@ package com.jcaa.usersmanagement.domain.model;
 
 import com.jcaa.usersmanagement.domain.enums.AppointmentStatus;
 import com.jcaa.usersmanagement.domain.valueobject.AppointmentId;
+import com.jcaa.usersmanagement.domain.valueobject.AppointmentReason;
 import lombok.Value;
 @Value
 public class AppointmentModel {
