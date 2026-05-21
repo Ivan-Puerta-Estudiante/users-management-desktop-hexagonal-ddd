@@ -3,6 +3,7 @@ package com.jcaa.usersmanagement.domain.event;
 import com.jcaa.usersmanagement.domain.model.AppointmentModel;
 
 import java.util.Map;
+import lombok.Getter;
 
 public final class AppointmentCreatedDomainEvent extends DomainEvent{
 
@@ -20,7 +21,7 @@ public final class AppointmentCreatedDomainEvent extends DomainEvent{
         return Map.of(
                 "id", appointment.getId().value(),
                 "doctorId", appointment.getDoctorId().value(),
-                "patientId", appointment.getPatientId().value,
+                "patientId", appointment.getPatientId().value(),
                 "date", appointment.getAppointmentDate().value(),
                 "reason", appointment.getAppointmentReason().value(),
                 "status", appointment.getAppointmentStatus().name()
