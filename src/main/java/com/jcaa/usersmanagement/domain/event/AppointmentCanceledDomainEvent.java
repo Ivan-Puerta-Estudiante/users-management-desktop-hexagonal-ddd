@@ -4,13 +4,13 @@ import com.jcaa.usersmanagement.domain.valueobject.AppointmentId;
 
 import java.util.Map;
 
-public final class AppointmentDeletedDomainEvent extends DomainEvent{
+public final class AppointmentCanceledDomainEvent extends DomainEvent{
 
-    private static final String EVENT_NAME = "appointment.deleted";
+    private static final String EVENT_NAME = "appointment.canceled";
 
     private final AppointmentId appointmentId;
 
-    public AppointmentDeletedDomainEvent(final AppointmentId appointmentId) {
+    public AppointmentCanceledDomainEvent(final AppointmentId appointmentId) {
         super(EVENT_NAME);
         this.appointmentId = appointmentId;
     }
