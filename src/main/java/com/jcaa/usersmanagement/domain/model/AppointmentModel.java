@@ -5,6 +5,7 @@ import com.jcaa.usersmanagement.domain.valueobject.AppointmentDate;
 import com.jcaa.usersmanagement.domain.valueobject.AppointmentId;
 import com.jcaa.usersmanagement.domain.valueobject.AppointmentReason;
 import com.jcaa.usersmanagement.domain.valueobject.PatientId;
+import com.jcaa.usersmanagement.domain.valueobject.DoctorId;
 import lombok.Value;
 @Value
 public class AppointmentModel {
