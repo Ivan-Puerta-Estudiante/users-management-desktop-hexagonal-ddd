@@ -5,13 +5,13 @@ import com.jcaa.usersmanagement.domain.model.AppointmentModel;
 import java.util.Map;
 import lombok.Getter;
 @Getter
-public final class AppointmentCreatedDomainEvent extends DomainEvent{
+public class AppointmentUpdatedDomainEvent extends DomainEvent {
 
-    private static final String EVENT_NAME = "appointment.created";
+    private static final String EVENT_NAME = "appointment.updated";
 
     private final AppointmentModel appointment;
 
-    public AppointmentCreatedDomainEvent(final AppointmentModel appointment) {
+    public AppointmentUpdatedDomainEvent(final AppointmentModel appointment) {
         super(EVENT_NAME);
         this.appointment = appointment;
     }
