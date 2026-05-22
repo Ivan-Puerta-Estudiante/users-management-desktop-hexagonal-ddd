@@ -3,6 +3,7 @@ package com.jcaa.usersmanagement.domain.event;
 import com.jcaa.usersmanagement.domain.valueobject.AppointmentId;
 
 import java.util.Map;
+import lombok.Getter;
 
 public final class AppointmentCanceledDomainEvent extends DomainEvent{
 
