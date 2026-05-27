@@ -87,7 +87,7 @@ public final class UserRepositoryMySQL
       }
       return Optional.of(UserPersistenceMapper.fromResultSetToModel(resultSet));
     } catch (final SQLException exception) {
-      throw PersistenceException.becauseFindByIdFailed(userId.value(), exception);
+      throw PersistenceException.becauseFindByIdFailed("user", userId.value(), exception);
     }
   }
 
@@ -101,7 +101,7 @@ public final class UserRepositoryMySQL
       }
       return Optional.of(UserPersistenceMapper.fromResultSetToModel(resultSet));
     } catch (final SQLException exception) {
-      throw PersistenceException.becauseFindByEmailFailed(email.value(), exception);
+      throw PersistenceException.becauseFindByFieldFailed("user", "email", email.value(), exception);
     }
   }
 
@@ -111,7 +111,7 @@ public final class UserRepositoryMySQL
       final ResultSet resultSet = statement.executeQuery();
       return UserPersistenceMapper.fromResultSetToModelList(resultSet);
     } catch (final SQLException exception) {
-      throw PersistenceException.becauseFindAllFailed(exception);
+      throw PersistenceException.becauseFindAllFailed("users", exception);
     }
   }
 
@@ -121,7 +121,7 @@ public final class UserRepositoryMySQL
       statement.setString(1, userId.value());
       statement.executeUpdate();
     } catch (final SQLException exception) {
-      throw PersistenceException.becauseDeleteFailed(userId.value(), exception);
+      throw PersistenceException.becauseDeleteFailed("user", userId.value(), exception);
     }
   }
 
@@ -135,7 +135,7 @@ public final class UserRepositoryMySQL
       statement.setString(6, dto.status());
       statement.executeUpdate();
     } catch (final SQLException exception) {
-      throw PersistenceException.becauseSaveFailed(dto.id(), exception);
+      throw PersistenceException.becauseSaveFailed("user", dto.id(), exception);
     }
   }
 
@@ -149,7 +149,7 @@ public final class UserRepositoryMySQL
       statement.setString(6, dto.id());
       statement.executeUpdate();
     } catch (final SQLException exception) {
-      throw PersistenceException.becauseUpdateFailed(dto.id(), exception);
+      throw PersistenceException.becauseUpdateFailed("user", dto.id(), exception);
     }
   }
 
