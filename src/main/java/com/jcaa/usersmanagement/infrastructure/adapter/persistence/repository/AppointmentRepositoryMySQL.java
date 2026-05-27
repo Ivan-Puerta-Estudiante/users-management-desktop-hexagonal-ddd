@@ -11,6 +11,7 @@ import com.jcaa.usersmanagement.infrastructure.adapter.persistence.dto.Appointme
 import com.jcaa.usersmanagement.infrastructure.adapter.persistence.exception.PersistenceException;
 import com.jcaa.usersmanagement.infrastructure.adapter.persistence.mapper.AppointmentPersistenceMapper;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.java.Log;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,6 +19,7 @@ import java.sql.ResultSet;
 import java.util.Optional;
 import java.sql.SQLException;
 
+@Log
 @RequiredArgsConstructor
 public final class AppointmentRepositoryMySQL
         implements SaveAppointmentPort,
@@ -52,7 +54,7 @@ public final class AppointmentRepositoryMySQL
 
     private final Connection connection;
 
-@Override
+    @Override
     public AppointmentModel save(final AppointmentModel appointment) {
 
         final AppointmentPersistenceDto dto =
@@ -61,7 +63,7 @@ public final class AppointmentRepositoryMySQL
 
         return findByIdOrFail(appointment.getId());
     }
-@Override
+    @Override
     public AppointmentModel update(final AppointmentModel appointment) {
 
         final AppointmentPersistenceDto dto =
@@ -77,7 +79,7 @@ public final class AppointmentRepositoryMySQL
             ) {
 
         try (final PreparedStatement statement =
-                connection.prepareStatement(SQL_SELECT_BY_ID)){
+                connection.prepareStatement(SQL_SELECT_BY_ID)) {
             statement.setString(1, appointmentId.value());
 
             final ResultSet resultSet = statement.executeQuery();
@@ -92,6 +94,7 @@ public final class AppointmentRepositoryMySQL
         } catch (final SQLException exception) {
 
             throw PersistenceException.becauseFindByIdFailed(
+                    "appointment",
                     appointmentId.value(),
                     exception
             );
@@ -108,6 +111,7 @@ public final class AppointmentRepositoryMySQL
         } catch (final SQLException exception) {
 
             throw PersistenceException.becauseDeleteFailed(
+                    "appointment",
                     appointmentId.value(),
                     exception
             );
@@ -132,6 +136,7 @@ public final class AppointmentRepositoryMySQL
         } catch (final SQLException exception) {
 
             throw PersistenceException.becauseSaveFailed(
+                    "appointment",
                     dto.id(),
                     exception
             );
@@ -154,6 +159,7 @@ public final class AppointmentRepositoryMySQL
         } catch (final SQLException exception) {
 
             throw PersistenceException.becauseUpdateFailed(
+                    "appointment",
                     dto.id(),
                     exception
             );
