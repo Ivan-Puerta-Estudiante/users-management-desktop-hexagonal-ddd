@@ -1,6 +1,8 @@
 package com.jcaa.usersmanagement;
 
 import com.jcaa.usersmanagement.infrastructure.config.DependencyContainer;
+import com.jcaa.usersmanagement.infrastructure.entrypoint.desktop.cli.AppointmentManagementCli;
+import com.jcaa.usersmanagement.infrastructure.entrypoint.desktop.cli.MainCli;
 import com.jcaa.usersmanagement.infrastructure.entrypoint.desktop.cli.UserManagementCli;
 import com.jcaa.usersmanagement.infrastructure.entrypoint.desktop.cli.io.ConsoleIO;
 import java.util.Scanner;
@@ -12,10 +14,19 @@ public final class Main {
   private static final Logger log = LoggerFactory.getLogger(Main.class);
 
   public static void main(final String[] args) {
+
     log.info("Starting Users Management System...");
+
     final DependencyContainer container = new DependencyContainer();
+
     try (final Scanner scanner = new Scanner(System.in)) {
-      new UserManagementCli(container.userController(), new ConsoleIO(scanner, System.out)).start();
+
+      ConsoleIO console = new ConsoleIO(scanner, System.out);
+
+      UserManagementCli userCli = new UserManagementCli(container.userController(), console);
+      AppointmentManagementCli appointmentCli = new AppointmentManagementCli(container.appointmentController(), console);
+
+      new MainCli(userCli, appointmentCli, console).start();
     }
   }
 }

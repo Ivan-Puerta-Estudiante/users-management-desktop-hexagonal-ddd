@@ -31,3 +31,15 @@ VALUES (
     'ACTIVE'
 );
 
+
+
+CREATE TABLE appointments (
+                              id VARCHAR(50) NOT NULL PRIMARY KEY,
+                              patient_id VARCHAR(50) NOT NULL,
+                              doctor_id VARCHAR(50) NOT NULL,
+                              appointment_date DATETIME NOT NULL,
+                              appointment_reason VARCHAR(300) NOT NULL,
+                              appointment_status VARCHAR(70) NOT NULL,
+                              created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                              updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

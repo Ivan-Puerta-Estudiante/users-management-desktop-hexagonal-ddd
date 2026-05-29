@@ -183,6 +183,7 @@ public final class AppointmentRepositoryMySQL
 
         } catch (final SQLException exception) {
 
+
             throw PersistenceException.becauseUpdateFailed(
                     "appointment",
                     dto.id(),

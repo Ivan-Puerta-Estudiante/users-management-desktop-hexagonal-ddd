@@ -50,7 +50,7 @@ public class AppointmentPersistenceMapper {
                 new AppointmentId(entity.id()),
                 new PatientId(entity.patientId()),
                 new DoctorId(entity.doctorId()),
-                new AppointmentDate(LocalDateTime.parse(entity.appointmentDate())),
+                new AppointmentDate(LocalDateTime.parse(entity.appointmentDate().replace(" ", "T"))),
                 new AppointmentReason(entity.appointmentReason()),
                 AppointmentStatus.fromString(entity.appointmentStatus())
         );
