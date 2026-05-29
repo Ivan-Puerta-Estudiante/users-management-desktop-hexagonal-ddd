@@ -14,11 +14,6 @@ public enum MenuOption {
   UPDATE_USER(4, "Update user"),
   DELETE_USER(5, "Delete user"),
   LOGIN(6, "Login"),
-  LIST_APPOINTMENTS(7, "List all appointments"),
-  FIND_APPOINTMENT(8, "Find appointment by ID"),
-  CREATE_APPOINTMENT(9, "Create appointment"),
-  UPDATE_APPOINTMENT(10, "Update appointment"),
-  DELETE_APPOINTMENT(11, "Delete appointment"),
   EXIT(0, "Exit");
 
   private final int number;
