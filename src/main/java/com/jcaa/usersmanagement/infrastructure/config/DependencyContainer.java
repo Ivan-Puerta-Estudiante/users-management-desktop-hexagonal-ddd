@@ -37,6 +37,8 @@ public final class DependencyContainer {
     final AppProperties properties = new AppProperties();
 
     final Connection connection = buildDatabaseConnection(properties);
+
+
     final UserRepositoryMySQL userRepository = new UserRepositoryMySQL(connection);
     final AppointmentRepositoryMySQL appointmentRepository = new AppointmentRepositoryMySQL(connection);
 
