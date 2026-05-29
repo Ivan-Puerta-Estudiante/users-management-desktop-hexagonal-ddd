@@ -6,7 +6,7 @@ import com.jcaa.usersmanagement.infrastructure.entrypoint.desktop.controller.App
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-public class DeleteAppointmentHandler implements OperationHandler{
+public final class DeleteAppointmentHandler implements OperationHandler{
 
     private final AppointmentController appointmentController;
     private final ConsoleIO console;
